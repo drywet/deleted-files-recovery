@@ -11,6 +11,6 @@ lazy val app = (project in file("app"))
       "commons-codec" % "commons-codec" % "1.15",
       "org.scalatest" %% "scalatest" % "3.2.9" % "test",
     ),
-    assembly / mainClass := Some("recovery.Recovery"),
+    assembly / mainClass := Some("recovery.Main"),
     assembly / assemblyJarName := "app.jar",
   )

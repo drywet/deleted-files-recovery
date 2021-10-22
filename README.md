@@ -21,14 +21,14 @@ that the lost files are up to some certain size, for example, 50 MB.
    \
    For Canon CR2 file recovery:
    ```
-   path/to/jdk/bin/java.exe -jar path/to/app/bin/app.jar inputFilePath=some/file.bin outputDirPath=some/dir outputFileExtension=cr2 discoveredFileSize=50000000 pattern=49,49,2A,00,10,00,00,00,43,52,02,00  
+   path/to/jdk/bin/java.exe -jar path/to/app/build/app.jar inputFilePath=some/file.bin outputDirPath=some/dir outputFileExtension=cr2 discoveredFileSize=50000000 pattern=49,49,2A,00,10,00,00,00,43,52,02,00  
    or  
-   path/to/jdk/bin/java.exe -jar path/to/app/bin/app.jar inputFilePath=some/file.bin outputDirPath=some/dir outputFileExtension=cr2 discoveredFileSize=50000000 sampleFilePath=photo/sample.cr2 sampleFilePatternLength=12
+   path/to/jdk/bin/java.exe -jar path/to/app/build/app.jar inputFilePath=some/file.bin outputDirPath=some/dir outputFileExtension=cr2 discoveredFileSize=50000000 sampleFilePath=photo/sample.cr2 sampleFilePatternLength=12
    ```
    \
    Testing:
    ```
-   path/to/jdk/bin/java.exe -jar path/to/app/bin/app.jar inputFilePath=some/file.bin outputDirPath=some/dir outputFileExtension=bin discoveredFileSize=10 pattern=01,02,03  
+   path/to/jdk/bin/java.exe -jar path/to/app/build/app.jar inputFilePath=path/to/app/build/testfile.bin outputDirPath=path/to/app/tmp/output outputFileExtension=bin discoveredFileSize=10 pattern=01,02,03  
    (should discover 17 files)
    ```
 
