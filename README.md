@@ -16,7 +16,7 @@ that the lost files are up to some certain size, for example, 50 MB.
    49,49,2A,00,10,00,00,00,43,52,02,00
 3) Run the app located in bin/app.jar.  
    For that you need to have [the latest JRE](https://jdk.java.net/17/).  
-   **Note**: set `discoveredFileSize` to as low value as possible, but that would be larger than sizes of any files to
+   **Note**: set `discoveredFileSize` to as low value as possible that is larger than sizes of any files to
    be found.\
    \
    For Canon CR2 file recovery:
