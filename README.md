@@ -7,6 +7,7 @@ that the lost files are up to some certain size, for example, 50 MB.
 
 # Usage
 
+0) Make sure you don't write to the disk with lost files.
 1) Make a plain unencoded disk image file of a disk. Under Windows, you can
    use [HxD editor](https://mh-nexus.de/en/downloads.php?product=HxD20) and its "Tools -> Open disk..." and "File ->
    Save as..." features.
@@ -16,8 +17,7 @@ that the lost files are up to some certain size, for example, 50 MB.
    49,49,2A,00,10,00,00,00,43,52,02,00
 3) Run the app located in bin/app.jar.  
    For that you need to have [the latest JRE](https://jdk.java.net/17/).  
-   **Note**: set `discoveredFileSize` to as low value as possible that is larger than sizes of any files to
-   be found.\
+   **Note**: set `discoveredFileSize` to as low value as possible that is larger than sizes of any files to be found.\
    \
    For Canon CR2 file recovery:
    ```
@@ -38,3 +38,7 @@ that the lost files are up to some certain size, for example, 50 MB.
 - sampleFile < 1 GB
 - pattern length < 50
 - input file size is unconstrained
+
+# Support
+
+Ask the developer if you have questions or suggestions.
