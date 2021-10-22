@@ -1,6 +1,6 @@
 # Deleted files recovery
 
-A small console utility to recover lost files of some reasonable size (like photos, but not large videos) by performing a full
+A console utility to recover lost files of some reasonable size (like photos, but not large videos) by performing a full
 scan of a disk image file. It uses the fact that many file formats contain a fixed well-defined header that, being found
 anywhere in a disk image file, signifies about a start of a file of that particular format. The implementation assumes
 that the lost files are up to some certain size, for example, 50 MB.
