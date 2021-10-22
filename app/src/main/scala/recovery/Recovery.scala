@@ -14,7 +14,7 @@ class Recovery(
   private var photoN: Int = 0
 
   def scan(): Unit = {
-    val maxBufSize: Int = Math.min(2, discoveredFileSize)
+    val maxBufSize: Int = Math.min(8 * 1024 * 1024, discoveredFileSize)
 
     val failure: Array[Int] = KMP.computeFailure(pattern)
 
