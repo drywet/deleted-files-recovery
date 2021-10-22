@@ -37,3 +37,4 @@ that the lost files are up to some certain size, for example, 50 MB.
 - discoveredFileSize < 1 GB
 - sampleFile < 1 GB
 - pattern length < 50
+- input file size is unconstrained
