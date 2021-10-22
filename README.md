@@ -10,7 +10,7 @@ that the lost files are up to some certain size, for example, 50 MB.
 1) Make a plain unencoded disk image file of a disk. Under Windows, you can
    use [HxD editor](https://mh-nexus.de/en/downloads.php?product=HxD20) and its "Tools -> Open disk..." and "File ->
    Save as..." features.
-2) Figure out the pattern to search for. To do that, you can open a couple of existing files (of the format you want to
+2) Figure out the `pattern` to search for. To do that, you can open a couple of existing files (of the format you want to
    detect) in a hex editor and find the common sequence of bytes at the beginning of each file. The length of the
    pattern should ideally be between 5 and 20 bytes. For example, for Canon CR2 format it can be:
    49,49,2A,00,10,00,00,00,43,52,02,00
