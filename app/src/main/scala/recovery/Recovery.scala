@@ -25,32 +25,30 @@ class Recovery(
     val buf: Array[Byte] = new Array[Byte](maxBufSize)
     var totalBytesRead: Int = 0
     var totalBytesReadReportTime: Long = System.currentTimeMillis
+    var in: BufferedInputStream = null
     try {
-      val in = new BufferedInputStream(new FileInputStream(inputFilePath.toFile))
-      try {
-        var bufSize: Int = in.read(buf)
-        while (bufSize > -1) {
-          val toCopySize: Int = Math.min(largeBuf.length - largeBufSize, bufSize)
-          System.arraycopy(buf, 0, largeBuf, largeBufSize, toCopySize)
-          largeBufSize += toCopySize
-          totalBytesRead += toCopySize
-          if (totalBytesReadReportTime + 10 * 1000 < System.currentTimeMillis) {
-            totalBytesReadReportTime = System.currentTimeMillis
-            System.out.println(s"totalBytesRead: ${totalBytesRead / 1024 / 1024} + MB")
-          }
-          if (largeBufSize == largeBuf.length) {
-            scanLargeBufAndSaveFiles(largeBuf, largeBufSize, discoveredFileSize, failure)
-            System.arraycopy(largeBuf, discoveredFileSize, largeBuf, 0, discoveredFileSize)
-            largeBufSize = discoveredFileSize
-          }
-          bufSize = in.read(buf)
+      in = new BufferedInputStream(new FileInputStream(inputFilePath.toFile))
+      var bufSize: Int = in.read(buf)
+      while (bufSize > -1) {
+        val toCopySize: Int = Math.min(largeBuf.length - largeBufSize, bufSize)
+        System.arraycopy(buf, 0, largeBuf, largeBufSize, toCopySize)
+        largeBufSize += toCopySize
+        totalBytesRead += toCopySize
+        if (totalBytesReadReportTime + 10 * 1000 < System.currentTimeMillis) {
+          totalBytesReadReportTime = System.currentTimeMillis
+          System.out.println(s"totalBytesRead: ${totalBytesRead / 1024 / 1024} + MB")
         }
-        scanLargeBufAndSaveFiles(largeBuf, largeBufSize, 1, failure)
-      } finally {
-        if (in != null) in.close()
+        if (largeBufSize == largeBuf.length) {
+          scanLargeBufAndSaveFiles(largeBuf, largeBufSize, discoveredFileSize, failure)
+          System.arraycopy(largeBuf, discoveredFileSize, largeBuf, 0, discoveredFileSize)
+          largeBufSize = discoveredFileSize
+        }
+        bufSize = in.read(buf)
       }
+      scanLargeBufAndSaveFiles(largeBuf, largeBufSize, 1, failure)
+    } finally {
+      if (in != null) in.close()
     }
-
   }
 
   private def scanLargeBufAndSaveFiles(
